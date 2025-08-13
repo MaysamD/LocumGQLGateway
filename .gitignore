@@ -40,9 +40,6 @@ _ReSharper*/
 # ASP.NET temporary files
 appsettings.*.json
 
-# Entity Framework Core Migrations
-Migrations/
-
 # User secrets (local dev)
 secrets.json
 
@@ -71,3 +68,4 @@ Dockerfile
 *.cache
 *.bak
 *.swp
+LocumGQLGetway/Properties/launchSettings.json
