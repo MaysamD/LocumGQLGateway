@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "LocalDev": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5001",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionStrings__DefaultConnection": "server=locumodb.mysql.database.azure.com;port=3306;database=locum_db;user=LocumoAdmin;password=YaSattar!!"
+      }
+    }
+  }
+}

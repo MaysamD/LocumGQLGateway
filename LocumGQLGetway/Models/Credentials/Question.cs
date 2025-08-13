@@ -1,0 +1,58 @@
+using System.ComponentModel.DataAnnotations;
+using LocumGQLGateway.Enums;
+
+namespace LocumGQLGateway.Models.Credentials;
+
+/// <summary>
+///     Represents a question that belongs to a category and can have options if applicable.
+/// </summary>
+public class Question : BaseEntity
+{
+    /// <summary>
+    ///     Foreign key referencing the category this question belongs to.
+    /// </summary>
+    [Required]
+    public int CategoryId { get; set; }
+
+    /// <summary>
+    ///     Navigation property to the question's category.
+    /// </summary>
+    public Category Category { get; set; } = null!;
+
+    /// <summary>
+    ///     The main text of the question to be presented.
+    /// </summary>
+    [Required]
+    public string Text { get; set; } = null!;
+
+    /// <summary>
+    ///     Optional help or hint text to guide the user answering the question.
+    /// </summary>
+    public string? HelpText { get; set; }
+
+    /// <summary>
+    ///     The data type of the expected answer.
+    ///     Consider replacing with an enum for type safety.
+    ///     Examples: "Text", "Number", "Date", "Boolean", "MultipleChoice", etc.
+    /// </summary>
+    [Required]
+    [MaxLength(50)]
+    public QuestionDataType DataType { get; set; } = QuestionDataType.Text;
+
+    /// <summary>
+    ///     Indicates if answering this question is mandatory.
+    /// </summary>
+    public bool IsRequired { get; set; } = false;
+
+    /// <summary>
+    ///     Defines the order in which this question appears within its category or form.
+    ///     Lower numbers appear first.
+    /// </summary>
+    public int SortOrder { get; set; }
+
+    /// <summary>
+    ///     Collection of options available for questions with selectable answers.
+    ///     Empty for free-text or numeric questions.
+    /// </summary>
+    public ICollection<QuestionOption> Options { get; set; } = new List<QuestionOption>();
+}

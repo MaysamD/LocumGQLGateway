@@ -1,0 +1,73 @@
+# Build output
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.vs/
+
+# Auto-generated files
+*.generated.cs
+
+# Visual Studio files
+.vscode/
+.vs/
+
+# Rider IDE
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NuGet packages
+*.nupkg
+# The packages folder can be ignored because of PackageReference in csproj
+# But if you use packages.config uncomment next line:
+# packages/
+
+# DotCover files
+*.dotCover
+
+# Resharper files
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# ASP.NET temporary files
+appsettings.*.json
+
+# Entity Framework Core Migrations
+Migrations/
+
+# User secrets (local dev)
+secrets.json
+
+# Azure Functions
+.local.settings.json
+
+# Logs
+*.log
+
+# Test results
+TestResults/
+*.trx
+
+# Coverage files
+coverage.opencover.xml
+coverage.cobertura.xml
+
+# Publish directory
+publish/
+
+# Docker files
+docker-compose.override.yml
+Dockerfile
+
+# Others
+*.cache
+*.bak
+*.swp
