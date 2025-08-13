@@ -22,6 +22,31 @@ namespace LocumGQLGateway.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("LocumGQLGateway.Data.SeedData.ProfileSeeds.PreferenceFacilityType", b =>
+                {
+                    b.Property<int>("PreferenceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FacilityTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PreferenceId", "FacilityTypeId");
+
+                    b.ToTable("PreferenceFacilityType", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            PreferenceId = 2,
+                            FacilityTypeId = 1
+                        },
+                        new
+                        {
+                            PreferenceId = 2,
+                            FacilityTypeId = 2
+                        });
+                });
+
             modelBuilder.Entity("LocumGQLGateway.Models.Profiles.Address", b =>
                 {
                     b.Property<int>("Id")
@@ -114,6 +139,9 @@ namespace LocumGQLGateway.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int?>("PreferenceId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedAtUtc")
                         .HasColumnType("datetime(6)");
 
@@ -124,6 +152,8 @@ namespace LocumGQLGateway.Migrations
 
                     b.HasIndex("CreatedById");
 
+                    b.HasIndex("PreferenceId");
+
                     b.HasIndex("UpdatedById");
 
                     b.ToTable("FacilityTypes");
@@ -132,38 +162,38 @@ namespace LocumGQLGateway.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(730),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8330),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Hospital",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(730)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8330)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(740),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8330),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Clinic",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(740)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8330)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(740),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8330),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Urgent Care",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(740)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8330)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(740),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8330),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Rehabilitation Center",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(740)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8330)
                         });
                 });
 
@@ -193,6 +223,9 @@ namespace LocumGQLGateway.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int?>("PreferenceId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedAtUtc")
                         .HasColumnType("datetime(6)");
 
@@ -203,6 +236,8 @@ namespace LocumGQLGateway.Migrations
 
                     b.HasIndex("CreatedById");
 
+                    b.HasIndex("PreferenceId");
+
                     b.HasIndex("UpdatedById");
 
                     b.ToTable("JobTypes");
@@ -211,47 +246,47 @@ namespace LocumGQLGateway.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(950),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8380),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Full-Time",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(950)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8380)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(950),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8380),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Part-Time",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(950)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8380)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(950),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8380),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Contract",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(950)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8380)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(950),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8380),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Temporary",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(950)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8380)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(950),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8380),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Internship",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(950)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8380)
                         });
                 });
 
@@ -281,6 +316,9 @@ namespace LocumGQLGateway.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int?>("PreferenceId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedAtUtc")
                         .HasColumnType("datetime(6)");
 
@@ -291,6 +329,8 @@ namespace LocumGQLGateway.Migrations
 
                     b.HasIndex("CreatedById");
 
+                    b.HasIndex("PreferenceId");
+
                     b.HasIndex("UpdatedById");
 
                     b.ToTable("LocationTypes");
@@ -299,38 +339,38 @@ namespace LocumGQLGateway.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1040),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8530),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Urban",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1040)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8530)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1040),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8530),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Suburban",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1040)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8540)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1040),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8540),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Rural",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1040)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8540)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1040),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8540),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Remote",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1040)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8540)
                         });
                 });
 
@@ -375,20 +415,120 @@ namespace LocumGQLGateway.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1110),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8730),
                             CreatedById = 1,
                             IsDeleted = false,
                             ProfileId = 1,
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1110)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8730)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1110),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8740),
                             CreatedById = 1,
                             IsDeleted = false,
                             ProfileId = 2,
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1110)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8740)
+                        });
+                });
+
+            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.PreferenceJobType", b =>
+                {
+                    b.Property<int>("PreferenceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("JobTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PreferenceId", "JobTypeId");
+
+                    b.ToTable("PreferenceJobType", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            PreferenceId = 2,
+                            JobTypeId = 1
+                        },
+                        new
+                        {
+                            PreferenceId = 2,
+                            JobTypeId = 2
+                        });
+                });
+
+            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.PreferenceLocationType", b =>
+                {
+                    b.Property<int>("PreferenceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LocationTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PreferenceId", "LocationTypeId");
+
+                    b.ToTable("PreferenceLocationType", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            PreferenceId = 2,
+                            LocationTypeId = 1
+                        },
+                        new
+                        {
+                            PreferenceId = 2,
+                            LocationTypeId = 3
+                        });
+                });
+
+            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.PreferenceShiftType", b =>
+                {
+                    b.Property<int>("PreferenceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShiftTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PreferenceId", "ShiftTypeId");
+
+                    b.ToTable("PreferenceShiftType", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            PreferenceId = 2,
+                            ShiftTypeId = 1
+                        },
+                        new
+                        {
+                            PreferenceId = 2,
+                            ShiftTypeId = 2
+                        });
+                });
+
+            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.PreferenceState", b =>
+                {
+                    b.Property<int>("PreferenceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StateId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PreferenceId", "StateId");
+
+                    b.ToTable("PreferenceState", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            PreferenceId = 2,
+                            StateId = 1
+                        },
+                        new
+                        {
+                            PreferenceId = 2,
+                            StateId = 5
                         });
                 });
 
@@ -445,37 +585,37 @@ namespace LocumGQLGateway.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1080),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8670),
                             CreatedById = 1,
                             FirstName = "SuperAdmin",
                             IsDeleted = false,
                             LastName = "SuperAdmin",
                             PhoneNumber = "(555) 555-5555",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1080),
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8670),
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1090),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8680),
                             CreatedById = 1,
                             FirstName = "Admin",
                             IsDeleted = false,
                             LastName = "Admin",
                             PhoneNumber = "(555) 555-5555",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1090),
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8680),
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1090),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8680),
                             CreatedById = 1,
                             FirstName = "Locum",
                             IsDeleted = false,
                             LastName = "Locum",
                             PhoneNumber = "(999) 999-9999",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1090),
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8680),
                             UserId = 3
                         });
                 });
@@ -560,7 +700,7 @@ namespace LocumGQLGateway.Migrations
                             CertificateExpirationEmail = true,
                             CertificateExpirationInApp = true,
                             CertificateExpirationSms = false,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1200),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 872, DateTimeKind.Utc).AddTicks(1900),
                             CreatedById = 1,
                             CredentialingUpdatesEmail = false,
                             CredentialingUpdatesInApp = false,
@@ -573,7 +713,7 @@ namespace LocumGQLGateway.Migrations
                             JobMatchNotificationsInApp = true,
                             JobMatchNotificationsSms = false,
                             ProfileId = 1,
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1200)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 872, DateTimeKind.Utc).AddTicks(1900)
                         },
                         new
                         {
@@ -581,7 +721,7 @@ namespace LocumGQLGateway.Migrations
                             CertificateExpirationEmail = false,
                             CertificateExpirationInApp = false,
                             CertificateExpirationSms = false,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1200),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 872, DateTimeKind.Utc).AddTicks(1910),
                             CreatedById = 1,
                             CredentialingUpdatesEmail = false,
                             CredentialingUpdatesInApp = false,
@@ -594,7 +734,7 @@ namespace LocumGQLGateway.Migrations
                             JobMatchNotificationsInApp = false,
                             JobMatchNotificationsSms = false,
                             ProfileId = 2,
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1200)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 872, DateTimeKind.Utc).AddTicks(1910)
                         });
                 });
 
@@ -624,6 +764,9 @@ namespace LocumGQLGateway.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int?>("PreferenceId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedAtUtc")
                         .HasColumnType("datetime(6)");
 
@@ -634,6 +777,8 @@ namespace LocumGQLGateway.Migrations
 
                     b.HasIndex("CreatedById");
 
+                    b.HasIndex("PreferenceId");
+
                     b.HasIndex("UpdatedById");
 
                     b.ToTable("ShiftTypes");
@@ -642,47 +787,47 @@ namespace LocumGQLGateway.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(970),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8470),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Morning",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(970)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8470)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(970),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8470),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Afternoon",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(970)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8470)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(970),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8470),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Evening",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(970)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8470)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(970),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8470),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Night",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(980)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8470)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(980),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8470),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "On-Call",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(980)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8470)
                         });
                 });
 
@@ -713,6 +858,9 @@ namespace LocumGQLGateway.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int?>("PreferenceId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedAtUtc")
                         .HasColumnType("datetime(6)");
 
@@ -723,6 +871,8 @@ namespace LocumGQLGateway.Migrations
 
                     b.HasIndex("CreatedById");
 
+                    b.HasIndex("PreferenceId");
+
                     b.HasIndex("UpdatedById");
 
                     b.ToTable("States");
@@ -732,51 +882,51 @@ namespace LocumGQLGateway.Migrations
                         {
                             Id = 1,
                             Abbreviation = "AL",
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1060),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8610),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Alabama",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1060)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8610)
                         },
                         new
                         {
                             Id = 2,
                             Abbreviation = "AK",
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1060),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8610),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Alaska",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1060)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8610)
                         },
                         new
                         {
                             Id = 3,
                             Abbreviation = "AZ",
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1060),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8610),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Arizona",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1060)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8610)
                         },
                         new
                         {
                             Id = 4,
                             Abbreviation = "AR",
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1060),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8610),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "Arkansas",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1060)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8610)
                         },
                         new
                         {
                             Id = 5,
                             Abbreviation = "CA",
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1060),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8610),
                             CreatedById = 1,
                             IsDeleted = false,
                             Name = "California",
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1060)
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8610)
                         });
                 });
 
@@ -833,176 +983,41 @@ namespace LocumGQLGateway.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1000),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8120),
                             CreatedById = 1,
                             Email = "SuperAdmin@example.com",
                             EmailConfirmed = false,
                             IsDeleted = false,
                             PasswordHash = "TBD",
                             Role = 0,
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1000),
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8120),
                             Username = "SuperAdmin"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1000),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8120),
                             CreatedById = 1,
                             Email = "admin@example.com",
                             EmailConfirmed = false,
                             IsDeleted = false,
                             PasswordHash = "TBD",
                             Role = 4,
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1000),
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8120),
                             Username = "admin"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1000),
+                            CreatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8130),
                             CreatedById = 1,
                             Email = "Locum@example.com",
                             EmailConfirmed = false,
                             IsDeleted = false,
                             PasswordHash = "TBD",
                             Role = 1,
-                            UpdatedAtUtc = new DateTime(2025, 8, 13, 2, 13, 25, 402, DateTimeKind.Utc).AddTicks(1000),
+                            UpdatedAtUtc = new DateTime(2025, 8, 13, 15, 31, 53, 870, DateTimeKind.Utc).AddTicks(8130),
                             Username = "Locum"
-                        });
-                });
-
-            modelBuilder.Entity("PreferenceFacilityType", b =>
-                {
-                    b.Property<int>("PreferenceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FacilityTypeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PreferenceId", "FacilityTypeId");
-
-                    b.HasIndex("FacilityTypeId");
-
-                    b.ToTable("PreferenceFacilityType");
-
-                    b.HasData(
-                        new
-                        {
-                            PreferenceId = 2,
-                            FacilityTypeId = 1
-                        },
-                        new
-                        {
-                            PreferenceId = 2,
-                            FacilityTypeId = 2
-                        });
-                });
-
-            modelBuilder.Entity("PreferenceJobType", b =>
-                {
-                    b.Property<int>("PreferenceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("JobTypeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PreferenceId", "JobTypeId");
-
-                    b.HasIndex("JobTypeId");
-
-                    b.ToTable("PreferenceJobType");
-
-                    b.HasData(
-                        new
-                        {
-                            PreferenceId = 2,
-                            JobTypeId = 1
-                        },
-                        new
-                        {
-                            PreferenceId = 2,
-                            JobTypeId = 2
-                        });
-                });
-
-            modelBuilder.Entity("PreferenceLocationType", b =>
-                {
-                    b.Property<int>("PreferenceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LocationTypeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PreferenceId", "LocationTypeId");
-
-                    b.HasIndex("LocationTypeId");
-
-                    b.ToTable("PreferenceLocationType");
-
-                    b.HasData(
-                        new
-                        {
-                            PreferenceId = 2,
-                            LocationTypeId = 1
-                        },
-                        new
-                        {
-                            PreferenceId = 2,
-                            LocationTypeId = 3
-                        });
-                });
-
-            modelBuilder.Entity("PreferenceShiftType", b =>
-                {
-                    b.Property<int>("PreferenceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ShiftTypeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PreferenceId", "ShiftTypeId");
-
-                    b.HasIndex("ShiftTypeId");
-
-                    b.ToTable("PreferenceShiftType");
-
-                    b.HasData(
-                        new
-                        {
-                            PreferenceId = 2,
-                            ShiftTypeId = 1
-                        },
-                        new
-                        {
-                            PreferenceId = 2,
-                            ShiftTypeId = 2
-                        });
-                });
-
-            modelBuilder.Entity("PreferenceState", b =>
-                {
-                    b.Property<int>("PreferenceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StateId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PreferenceId", "StateId");
-
-                    b.HasIndex("StateId");
-
-                    b.ToTable("PreferenceState");
-
-                    b.HasData(
-                        new
-                        {
-                            PreferenceId = 2,
-                            StateId = 1
-                        },
-                        new
-                        {
-                            PreferenceId = 2,
-                            StateId = 5
                         });
                 });
 
@@ -1045,6 +1060,10 @@ namespace LocumGQLGateway.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
+                        .WithMany("FacilityTypes")
+                        .HasForeignKey("PreferenceId");
+
                     b.HasOne("LocumGQLGateway.Models.User", "UpdatedBy")
                         .WithMany()
                         .HasForeignKey("UpdatedById");
@@ -1062,6 +1081,10 @@ namespace LocumGQLGateway.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
+                        .WithMany("JobTypes")
+                        .HasForeignKey("PreferenceId");
+
                     b.HasOne("LocumGQLGateway.Models.User", "UpdatedBy")
                         .WithMany()
                         .HasForeignKey("UpdatedById");
@@ -1078,6 +1101,10 @@ namespace LocumGQLGateway.Migrations
                         .HasForeignKey("CreatedById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
+                        .WithMany("LocationTypes")
+                        .HasForeignKey("PreferenceId");
 
                     b.HasOne("LocumGQLGateway.Models.User", "UpdatedBy")
                         .WithMany()
@@ -1171,6 +1198,10 @@ namespace LocumGQLGateway.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
+                        .WithMany("ShiftTypes")
+                        .HasForeignKey("PreferenceId");
+
                     b.HasOne("LocumGQLGateway.Models.User", "UpdatedBy")
                         .WithMany()
                         .HasForeignKey("UpdatedById");
@@ -1187,6 +1218,10 @@ namespace LocumGQLGateway.Migrations
                         .HasForeignKey("CreatedById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
+                        .WithMany("States")
+                        .HasForeignKey("PreferenceId");
 
                     b.HasOne("LocumGQLGateway.Models.User", "UpdatedBy")
                         .WithMany()
@@ -1214,79 +1249,17 @@ namespace LocumGQLGateway.Migrations
                     b.Navigation("UpdatedBy");
                 });
 
-            modelBuilder.Entity("PreferenceFacilityType", b =>
+            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.Preference", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.FacilityType", null)
-                        .WithMany()
-                        .HasForeignKey("FacilityTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("FacilityTypes");
 
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
-                        .WithMany()
-                        .HasForeignKey("PreferenceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                    b.Navigation("JobTypes");
 
-            modelBuilder.Entity("PreferenceJobType", b =>
-                {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.JobType", null)
-                        .WithMany()
-                        .HasForeignKey("JobTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("LocationTypes");
 
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
-                        .WithMany()
-                        .HasForeignKey("PreferenceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                    b.Navigation("ShiftTypes");
 
-            modelBuilder.Entity("PreferenceLocationType", b =>
-                {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.LocationType", null)
-                        .WithMany()
-                        .HasForeignKey("LocationTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
-                        .WithMany()
-                        .HasForeignKey("PreferenceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("PreferenceShiftType", b =>
-                {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
-                        .WithMany()
-                        .HasForeignKey("PreferenceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LocumGQLGateway.Models.Profiles.ShiftType", null)
-                        .WithMany()
-                        .HasForeignKey("ShiftTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("PreferenceState", b =>
-                {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
-                        .WithMany()
-                        .HasForeignKey("PreferenceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LocumGQLGateway.Models.Profiles.State", null)
-                        .WithMany()
-                        .HasForeignKey("StateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("States");
                 });
 
             modelBuilder.Entity("LocumGQLGateway.Models.Profiles.Profile", b =>
