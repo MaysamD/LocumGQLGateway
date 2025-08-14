@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LocumGQLGateway.Data.SeedData.ProfileSeeds;
 
-
 public class ProfileNotificationSettingsSeed : IEntityTypeConfiguration<ProfileNotificationSettings>
 {
     public void Configure(EntityTypeBuilder<ProfileNotificationSettings> builder)

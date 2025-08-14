@@ -8,8 +8,8 @@ using KeyNotFoundException = System.Collections.Generic.KeyNotFoundException;
 namespace LocumGQLGateway.Services.Implementations;
 
 /// <summary>
-/// Service implementation for managing user preferences including facility types, job types,
-/// location types, shift types, and states associated with a profile.
+///     Service implementation for managing user preferences including facility types, job types,
+///     location types, shift types, and states associated with a profile.
 /// </summary>
 public class PreferenceService : IPreferenceService
 {
@@ -21,9 +21,9 @@ public class PreferenceService : IPreferenceService
     private readonly IStateService _stateService;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="PreferenceService"/> class.
+    ///     Initializes a new instance of the <see cref="PreferenceService" /> class.
     /// </summary>
-    /// <param name="factory">Database context factory for creating <see cref="AppDbContext"/> instances.</param>
+    /// <param name="factory">Database context factory for creating <see cref="AppDbContext" /> instances.</param>
     /// <param name="facilityTypeService">Service for managing facility types.</param>
     /// <param name="shiftTypeService">Service for managing shift types.</param>
     /// <param name="jobTypeService">Service for managing job types.</param>
@@ -46,10 +46,10 @@ public class PreferenceService : IPreferenceService
     }
 
     /// <summary>
-    /// Retrieves the <see cref="Preference"/> entity for a specific profile, including all related collections.
+    ///     Retrieves the <see cref="Preference" /> entity for a specific profile, including all related collections.
     /// </summary>
     /// <param name="profileId">The profile identifier.</param>
-    /// <returns>The <see cref="Preference"/> entity or null if not found.</returns>
+    /// <returns>The <see cref="Preference" /> entity or null if not found.</returns>
     public async Task<Preference?> GetByProfileIdAsync(int profileId)
     {
         await using var ctx = _factory.CreateDbContext();
@@ -63,7 +63,7 @@ public class PreferenceService : IPreferenceService
     }
 
     /// <summary>
-    /// Updates the profile preferences based on the provided DTO.
+    ///     Updates the profile preferences based on the provided DTO.
     /// </summary>
     /// <param name="input">The preference data transfer object containing updated IDs for each preference category.</param>
     /// <returns>True if update is successful; otherwise, throws an exception.</returns>
@@ -111,8 +111,8 @@ public class PreferenceService : IPreferenceService
     }
 
     /// <summary>
-    /// Synchronizes the LocationTypes collection on the preference entity with the provided input IDs.
-    /// Removes unselected and adds new location types.
+    ///     Synchronizes the LocationTypes collection on the preference entity with the provided input IDs.
+    ///     Removes unselected and adds new location types.
     /// </summary>
     private static async Task UpdateLocationType(PreferenceDto input, Preference preferenceEntity, AppDbContext ctx)
     {
@@ -141,8 +141,8 @@ public class PreferenceService : IPreferenceService
     }
 
     /// <summary>
-    /// Synchronizes the States collection on the preference entity with the provided input IDs.
-    /// Removes unselected and adds new states.
+    ///     Synchronizes the States collection on the preference entity with the provided input IDs.
+    ///     Removes unselected and adds new states.
     /// </summary>
     private static async Task UpdateState(PreferenceDto input, Preference preferenceEntity, AppDbContext ctx)
     {
@@ -171,8 +171,8 @@ public class PreferenceService : IPreferenceService
     }
 
     /// <summary>
-    /// Synchronizes the ShiftTypes collection on the preference entity with the provided input IDs.
-    /// Removes unselected and adds new shift types.
+    ///     Synchronizes the ShiftTypes collection on the preference entity with the provided input IDs.
+    ///     Removes unselected and adds new shift types.
     /// </summary>
     private static async Task UpdateShiftType(PreferenceDto input, Preference preferenceEntity, AppDbContext ctx)
     {
@@ -201,8 +201,8 @@ public class PreferenceService : IPreferenceService
     }
 
     /// <summary>
-    /// Synchronizes the FacilityTypes collection on the preference entity with the provided input IDs.
-    /// Removes unselected and adds new facility types.
+    ///     Synchronizes the FacilityTypes collection on the preference entity with the provided input IDs.
+    ///     Removes unselected and adds new facility types.
     /// </summary>
     private static async Task UpdateFacilityType(PreferenceDto input, Preference preferenceEntity, AppDbContext ctx)
     {
@@ -227,8 +227,8 @@ public class PreferenceService : IPreferenceService
     }
 
     /// <summary>
-    /// Synchronizes the JobTypes collection on the preference entity with the provided input IDs.
-    /// Removes unselected and adds new job types.
+    ///     Synchronizes the JobTypes collection on the preference entity with the provided input IDs.
+    ///     Removes unselected and adds new job types.
     /// </summary>
     private static async Task UpdateJobType(PreferenceDto input, Preference preferenceEntity, AppDbContext ctx)
     {

@@ -1,4 +1,3 @@
-using LocumGQLGateway.Data;
 using LocumGQLGateway.Dtos;
 using LocumGQLGateway.Models.Profiles;
 

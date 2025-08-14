@@ -1,21 +1,23 @@
-using System.Net;
 using LocumGQLGateway.Models.Credentials;
+using LocumGQLGateway.Services.Interfaces;
 
 namespace LocumGQLGateway.GraphQL.Queries;
 
 public partial class Query
 {
     [UseProjection]
-    [UsePaging]
     [UseFiltering]
     [UseSorting]
-    public async Task <IEnumerable<Category>> GetCredentialsCategoriesAsync([Service] ICredentialsService credentialsService)
+    public Task<IQueryable<Category>> GetCredentialsCategoriesAsync([Service] ICredentialsService credentialsService)
     {
-        return await credentialsService.GetCredentialsCategoriesAsync();
+        return credentialsService.GetCredentialsCategoriesAsync();
     }
-}
 
-public interface ICredentialsService
-{
-    Task <IEnumerable<Category>>  GetCredentialsCategoriesAsync();
+    [UseProjection]
+    [UseFiltering]
+    [UseSorting]
+    public Task<IQueryable<Form>> GetCredentialsFormsAsync([Service] ICredentialsService credentialsService)
+    {
+        return credentialsService.GetCredentialsFormsAsync();
+    }
 }

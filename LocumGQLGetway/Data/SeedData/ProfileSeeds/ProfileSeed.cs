@@ -1,10 +1,8 @@
-
 using LocumGQLGateway.Models.Profiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LocumGQLGateway.Data.SeedData.ProfileSeeds;
-
 
 public class ProfileSeed : IEntityTypeConfiguration<Profile>
 {
@@ -14,7 +12,7 @@ public class ProfileSeed : IEntityTypeConfiguration<Profile>
             new Profile
             {
                 Id = 1,
-                UserId = 1, 
+                UserId = 1,
                 FirstName = "SuperAdmin",
                 LastName = "SuperAdmin",
                 PhoneNumber = "(555) 555-5555"
@@ -22,7 +20,7 @@ public class ProfileSeed : IEntityTypeConfiguration<Profile>
             new Profile
             {
                 Id = 2,
-                UserId = 2, 
+                UserId = 2,
                 FirstName = "Admin",
                 LastName = "Admin",
                 PhoneNumber = "(555) 555-5555"

@@ -5,6 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="EFCore.NamingConventions" Version="8.0.2"/>
         <PackageReference Include="HotChocolate" Version="15.1.8"/>
         <PackageReference Include="HotChocolate.AspNetCore" Version="15.1.8"/>
         <PackageReference Include="HotChocolate.Data" Version="15.1.8"/>
@@ -17,9 +18,11 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Remove="Extensions\ModelBuilderExtensions.cs"/>
-        <Compile Remove="Extensions\ValidationExtention.cs" />
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Migrations\"/>
+        <Compile Remove="Extensions\ValidationExtention.cs"/>
+        <Compile Remove="Models\Credentials\FormQuestion.cs"/>
+        <Compile Remove="Data\SeedData\Credentials\FormCategorySeed.cs"/>
+        <Compile Remove="Models\Credentials\FormCategory.cs"/>
+        <Compile Remove="Data\SeedData\ProfileSeeds\PreferenceFacilityTypeSeed.cs"/>
+        <Compile Remove="Models\Profiles\PreferenceFacilityType.cs"/>
     </ItemGroup>
 </Project>

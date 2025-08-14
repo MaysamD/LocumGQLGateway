@@ -1,6 +1,6 @@
 using LocumGQLGateway.Data.SeedData;
+using LocumGQLGateway.Data.SeedData.Credentials;
 using LocumGQLGateway.Data.SeedData.ProfileSeeds;
-using LocumGQLGateway.Enums;
 using LocumGQLGateway.Models;
 using LocumGQLGateway.Models.Credentials;
 using LocumGQLGateway.Models.Profiles;
@@ -10,8 +10,11 @@ namespace LocumGQLGateway.Data;
 
 public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    private readonly IConfiguration _configuration;
+
+    public AppDbContext(DbContextOptions<AppDbContext> options, IConfiguration configuration) : base(options)
     {
+        _configuration = configuration;
     }
 
     public DbSet<User> Users => Set<User>();
@@ -23,10 +26,24 @@ public class AppDbContext : DbContext
     public DbSet<LocationType> LocationTypes => Set<LocationType>();
     public DbSet<State> States => Set<State>();
     public DbSet<Address> Address => Set<Address>();
-    
+
     // Credentials
-  //  public DbSet<Form> Form => Set<Form>();
-  //  public DbSet<Category> Category => Set<Category>();
+    public DbSet<Form> Forms => Set<Form>();
+    public DbSet<Category> Categories => Set<Category>();
+    public DbSet<UserCredential> UserCredential => Set<UserCredential>();
+    public DbSet<CategoryQuestion> CategoryQuestions => Set<CategoryQuestion>();
+    public DbSet<QuestionOption> QuestionOptions => Set<QuestionOption>();
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        // Get the connection string from appsettings
+        var connectionString = _configuration.GetConnectionString("DefaultConnection");
+        // Only enable in development to avoid logging sensitive data in production
+        if (!optionsBuilder.IsConfigured)
+            optionsBuilder
+                .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+                .EnableSensitiveDataLogging();
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -54,32 +71,45 @@ public class AppDbContext : DbContext
             .WithOne(pns => pns.Profile)
             .HasForeignKey<ProfileNotificationSettings>(pns => pns.ProfileId);
 
+        // This is the key part to apply the configuration to all models
+        // that inherit from BaseEntity.
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            if (typeof(BaseEntity).IsAssignableFrom(entityType.ClrType))
+            {
+                // Configure CreatedAtUtc
+                modelBuilder.Entity(entityType.ClrType)
+                    .Property("CreatedAtUtc")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                // Configure UpdatedAtUtc
+                modelBuilder.Entity(entityType.ClrType)
+                    .Property("UpdatedAtUtc")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            }
+
         // Seed everything else
         SeedData(modelBuilder);
     }
 
-
     private static void SeedData(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new UserSeed());
-        
+
         modelBuilder.ApplyConfiguration(new FacilityTypeSeed());
         modelBuilder.ApplyConfiguration(new JobTypeSeed());
         modelBuilder.ApplyConfiguration(new ShiftTypeSeed());
         modelBuilder.ApplyConfiguration(new LocationTypeSeed());
         modelBuilder.ApplyConfiguration(new StateSeed());
-        
+
         modelBuilder.ApplyConfiguration(new ProfileSeed());
         modelBuilder.ApplyConfiguration(new PreferenceSeed());
-        modelBuilder.ApplyConfiguration(new PreferenceFacilityTypeSeed());
-        modelBuilder.ApplyConfiguration(new PreferenceJobTypeSeed());
-        modelBuilder.ApplyConfiguration(new PreferenceShiftTypeSeed());
-        modelBuilder.ApplyConfiguration(new PreferenceLocationTypeSeed());
-        modelBuilder.ApplyConfiguration(new PreferenceStateSeed());
         modelBuilder.ApplyConfiguration(new ProfileNotificationSettingsSeed());
- 
-        //modelBuilder.ApplyConfiguration(new CategorySeed());
-        //modelBuilder.ApplyConfiguration(new FormSeed());
-        //modelBuilder.ApplyConfiguration(new FormCategorySeed());
+
+        modelBuilder.ApplyConfiguration(new FormSeed());
+        modelBuilder.ApplyConfiguration(new CategorySeed());
+        modelBuilder.ApplyConfiguration(new QuestionSeed());
+        modelBuilder.ApplyConfiguration(new CategoryQuestionSeed());
     }
 }

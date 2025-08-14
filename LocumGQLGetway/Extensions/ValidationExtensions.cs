@@ -5,7 +5,7 @@ namespace LocumGQLGateway.Extensions;
 public static class ValidationExtensions
 {
     /// <summary>
-    /// Helper method to run validation and execute a service call, handling exceptions uniformly.
+    ///     Helper method to run validation and execute a service call, handling exceptions uniformly.
     /// </summary>
     public static async Task<T> ExecuteWithValidationAsync<T>(this object input, Func<Task<T>> serviceCall)
     {
@@ -32,6 +32,7 @@ public static class ValidationExtensions
             throw new GraphQLException("An unexpected error occurred.", ex);
         }
     }
+
     public static void ValidateDataAnnotations(this object model)
     {
         var validationContext = new ValidationContext(model);

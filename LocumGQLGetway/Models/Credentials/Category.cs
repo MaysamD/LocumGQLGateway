@@ -1,10 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LocumGQLGateway.Models.Credentials;
 
 /// <summary>
 ///     Represents a category grouping for questions or credentials.
 /// </summary>
+[Table("categories")]
 public class Category : BaseEntity
 {
     /// <summary>
@@ -12,27 +14,36 @@ public class Category : BaseEntity
     /// </summary>
     [Required]
     [MaxLength(200)]
+    [Column("name")]
     public string Name { get; set; } = null!;
 
     /// <summary>
     ///     URL-friendly slug version of the category name, used for routing or SEO.
     /// </summary>
     [MaxLength(200)]
+    [Column("slug")]
     public string? Slug { get; set; }
 
     /// <summary>
     ///     Optional detailed description about this category.
     /// </summary>
+    [Column("description")]
     public string? Description { get; set; }
 
     /// <summary>
     ///     Determines the display order for the category in lists or UI.
     ///     Lower numbers show first.
     /// </summary>
+    [Column("sort_order")]
     public int SortOrder { get; set; }
 
     /// <summary>
     ///     Navigation property for questions belonging to this category.
     /// </summary>
     public ICollection<Question> Questions { get; set; } = new List<Question>();
+
+    /// <summary>
+    ///     Navigation property for Forms belonging to this category.
+    /// </summary>
+    public IEnumerable<Form>? Forms { get; set; }
 }

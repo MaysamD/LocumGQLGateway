@@ -14,11 +14,11 @@ builder.Services.AddPooledDbContextFactory<AppDbContext>(options =>
         connectionString,
         new MySqlServerVersion(new Version(8, 0, 33)),
         mysql => mysql.EnableRetryOnFailure()
-    );
+    ).EnableSensitiveDataLogging();
 });
 // 1. Register DbContext with IServiceCollection
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)).UseSnakeCaseNamingConvention());
 // Register Services
 builder.Services.AddLocumServices();
 

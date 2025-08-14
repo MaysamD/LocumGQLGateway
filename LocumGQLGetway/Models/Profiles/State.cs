@@ -1,24 +1,29 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LocumGQLGateway.Models.Profiles
+// Added for Table/Column attributes
+
+namespace LocumGQLGateway.Models.Profiles;
+
+/// <summary>
+///     Represents a state or province used in addresses.
+/// </summary>
+[Table("states")] // Added Table attribute
+public class State : BaseEntity
 {
     /// <summary>
-    /// Represents a state or province used in addresses.
+    ///     Full name of the state or province, e.g., "California".
     /// </summary>
-    public class State : BaseEntity
-    {
-        /// <summary>
-        /// Full name of the state or province, e.g., "California".
-        /// </summary>
-        [Required]
-        [MaxLength(100)]
-        public string Name { get; set; } = null!;
+    [Required]
+    [MaxLength(100)]
+    [Column("name")] // Added Column attribute
+    public string Name { get; set; } = null!;
 
-        /// <summary>
-        /// Abbreviation or code of the state, e.g., "CA".
-        /// </summary>
-        [Required]
-        [MaxLength(10)]
-        public string Abbreviation { get; set; } = null!;
-    }
+    /// <summary>
+    ///     Abbreviation or code of the state, e.g., "CA".
+    /// </summary>
+    [Required]
+    [MaxLength(10)]
+    [Column("abbreviation")] // Added Column attribute
+    public string Abbreviation { get; set; } = null!;
 }

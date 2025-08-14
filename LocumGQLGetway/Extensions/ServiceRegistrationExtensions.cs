@@ -17,6 +17,8 @@ public static class ServiceRegistrationExtensions
         services.AddScoped<IProfileService, ProfileService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IPreferenceService, PreferenceService>();
+        services.AddScoped<ICredentialsService, CredentialsService>();
+
 
         return services;
     }
