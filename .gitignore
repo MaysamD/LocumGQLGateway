@@ -69,3 +69,4 @@ Dockerfile
 *.bak
 *.swp
 LocumGQLGetway/Properties/launchSettings.json
+NotificationProcessor/Properties/launchSettings.json
