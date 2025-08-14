@@ -1,9 +1,9 @@
-using LocumGQLGateway.Enums;
-using LocumGQLGateway.Models.Credentials;
+using LocumApp.Domain.Enums;
+using LocumApp.Domain.Models.Credentials;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace LocumGQLGateway.Data.SeedData;
+namespace LocumGQLGateway.Data.SeedData.Credentials;
 
 public class QuestionSeed : IEntityTypeConfiguration<Question>
 {
@@ -11,6 +11,7 @@ public class QuestionSeed : IEntityTypeConfiguration<Question>
     {
         const int personalInformationCategoryId = 1;
         const int educationAndTrainingCategoryId = 2;
+        const int licenceAndCertsCategoryId = 2;
 
         builder.HasData(
             // Personal Information
@@ -76,6 +77,35 @@ public class QuestionSeed : IEntityTypeConfiguration<Question>
                     "Select the state where your medical school is located or where you are licensed to practice.",
                 DataType = QuestionDataType.MultipleChoice,
                 SortOrder = 4
+            },
+            new Question
+            {
+                Id = 7,
+                CategoryId = licenceAndCertsCategoryId, // Replace with actual Category ID for "State Licenses"
+                Text = "State",
+                HelpText = "Select the U.S. state where the license is issued.",
+                DataType = QuestionDataType.MultipleChoice,
+                SortOrder = 1
+            },
+            new Question
+            {
+                Id = 8,
+                CategoryId = licenceAndCertsCategoryId,
+                Text = "License Number",
+                HelpText = "Enter the full license number exactly as shown on the license.",
+                DataType = QuestionDataType.Text,
+                SortOrder = 2
+            },
+            new Question
+            {
+                Id = 9,
+                CategoryId = licenceAndCertsCategoryId,
+                Text = "Patients Seen (%)",
+                HelpText = "Enter the percentage of patients you see in this state.",
+                DataType = QuestionDataType.Number,
+                SortOrder = 3,
+                RegexValidation =
+                    @"^(100(\.0{1,2})?|(\d{1,2}(\.\d{1,2})?))$" // Validates 0–100 with up to 2 decimal places
             }
         );
     }

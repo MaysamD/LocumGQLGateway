@@ -1,4 +1,4 @@
-using LocumGQLGateway.Models.Profiles;
+using LocumApp.Domain.Models.Profiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

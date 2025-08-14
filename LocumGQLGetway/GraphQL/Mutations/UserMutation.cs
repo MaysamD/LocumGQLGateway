@@ -1,6 +1,7 @@
+using System.ComponentModel.DataAnnotations;
+using LocumApp.Domain.Models;
 using LocumGQLGateway.Dtos;
 using LocumGQLGateway.Extensions;
-using LocumGQLGateway.Models;
 using LocumGQLGateway.Services.Interfaces;
 
 namespace LocumGQLGateway.GraphQL.Mutations;

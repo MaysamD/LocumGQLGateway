@@ -1,7 +1,7 @@
+using LocumApp.Domain.Models;
+using LocumApp.Domain.Models.Profiles;
 using LocumGQLGateway.Data;
 using LocumGQLGateway.Dtos;
-using LocumGQLGateway.Models;
-using LocumGQLGateway.Models.Profiles;
 using LocumGQLGateway.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

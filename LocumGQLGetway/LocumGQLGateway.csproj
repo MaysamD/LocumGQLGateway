@@ -25,4 +25,7 @@
         <Compile Remove="Data\SeedData\ProfileSeeds\PreferenceFacilityTypeSeed.cs"/>
         <Compile Remove="Models\Profiles\PreferenceFacilityType.cs"/>
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+    </ItemGroup>
 </Project>

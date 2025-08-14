@@ -22,7 +22,7 @@ namespace LocumGQLGateway.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.Category", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,10 +60,6 @@ namespace LocumGQLGateway.Migrations
                         .HasColumnType("varchar(200)")
                         .HasColumnName("slug");
 
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int")
-                        .HasColumnName("sort_order");
-
                     b.Property<DateTime?>("UpdatedAtUtc")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
@@ -86,8 +82,7 @@ namespace LocumGQLGateway.Migrations
                             Description = "Basic personal details and identification info",
                             IsDeleted = false,
                             Name = "Personal Information",
-                            Slug = "personal-information",
-                            SortOrder = 1
+                            Slug = "personal-information"
                         },
                         new
                         {
@@ -96,8 +91,7 @@ namespace LocumGQLGateway.Migrations
                             Description = "Information about your education background and training",
                             IsDeleted = false,
                             Name = "Education & Training",
-                            Slug = "education-training",
-                            SortOrder = 2
+                            Slug = "education-training"
                         },
                         new
                         {
@@ -106,8 +100,7 @@ namespace LocumGQLGateway.Migrations
                             Description = "All professional licenses and certifications",
                             IsDeleted = false,
                             Name = "Licenses & Certifications",
-                            Slug = "licenses-certifications",
-                            SortOrder = 3
+                            Slug = "licenses-certifications"
                         },
                         new
                         {
@@ -116,8 +109,7 @@ namespace LocumGQLGateway.Migrations
                             Description = "Details about your practice locations and affiliations",
                             IsDeleted = false,
                             Name = "Practice & Affiliation",
-                            Slug = "practice-affiliation",
-                            SortOrder = 4
+                            Slug = "practice-affiliation"
                         },
                         new
                         {
@@ -126,8 +118,7 @@ namespace LocumGQLGateway.Migrations
                             Description = "Previous work history and professional references",
                             IsDeleted = false,
                             Name = "Work History & References",
-                            Slug = "work-history-references",
-                            SortOrder = 5
+                            Slug = "work-history-references"
                         },
                         new
                         {
@@ -136,8 +127,7 @@ namespace LocumGQLGateway.Migrations
                             Description = "Claims history and disclosures",
                             IsDeleted = false,
                             Name = "Claims & Disclosures",
-                            Slug = "claims-disclosures",
-                            SortOrder = 6
+                            Slug = "claims-disclosures"
                         },
                         new
                         {
@@ -146,12 +136,11 @@ namespace LocumGQLGateway.Migrations
                             Description = "Health and legal background information",
                             IsDeleted = false,
                             Name = "Health & Legal History",
-                            Slug = "health-legal-history",
-                            SortOrder = 7
+                            Slug = "health-legal-history"
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.CategoryQuestion", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.CategoryQuestion", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int")
@@ -192,7 +181,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.Form", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.Form", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -261,7 +250,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.Question", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.Question", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -396,7 +385,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.QuestionOption", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.QuestionOption", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -455,7 +444,7 @@ namespace LocumGQLGateway.Migrations
                     b.ToTable("question_options");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.UserCredential", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.UserCredential", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -539,7 +528,7 @@ namespace LocumGQLGateway.Migrations
                     b.ToTable("user_credentials");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.Address", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.Address", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -614,7 +603,7 @@ namespace LocumGQLGateway.Migrations
                     b.ToTable("Address");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.FacilityType", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.FacilityType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -693,7 +682,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.JobType", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.JobType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -779,7 +768,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.LocationType", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.LocationType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -858,7 +847,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.Preference", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.Preference", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -919,7 +908,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.Profile", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.Profile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1011,7 +1000,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.ProfileNotificationSettings", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.ProfileNotificationSettings", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1144,7 +1133,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.ShiftType", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.ShiftType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1230,7 +1219,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.State", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.State", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1322,7 +1311,7 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.User", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1423,6 +1412,9 @@ namespace LocumGQLGateway.Migrations
                     b.Property<int>("category_id")
                         .HasColumnType("int");
 
+                    b.Property<int>("sort_order")
+                        .HasColumnType("int");
+
                     b.HasKey("form_id", "category_id");
 
                     b.HasIndex("category_id");
@@ -1433,27 +1425,32 @@ namespace LocumGQLGateway.Migrations
                         new
                         {
                             form_id = 1,
-                            category_id = 1
+                            category_id = 1,
+                            sort_order = 1
                         },
                         new
                         {
                             form_id = 1,
-                            category_id = 2
+                            category_id = 2,
+                            sort_order = 2
                         },
                         new
                         {
                             form_id = 1,
-                            category_id = 3
+                            category_id = 3,
+                            sort_order = 3
                         },
                         new
                         {
                             form_id = 1,
-                            category_id = 4
+                            category_id = 4,
+                            sort_order = 4
                         },
                         new
                         {
                             form_id = 1,
-                            category_id = 5
+                            category_id = 5,
+                            sort_order = 5
                         });
                 });
 
@@ -1592,15 +1589,15 @@ namespace LocumGQLGateway.Migrations
                         });
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.CategoryQuestion", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.CategoryQuestion", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Credentials.Category", "Category")
+                    b.HasOne("LocumGQLGateway.Domain.Credentials.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LocumGQLGateway.Models.Credentials.Question", "Question")
+                    b.HasOne("LocumGQLGateway.Domain.Credentials.Question", "Question")
                         .WithMany()
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1611,9 +1608,9 @@ namespace LocumGQLGateway.Migrations
                     b.Navigation("Question");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.Question", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.Question", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Credentials.Category", "Category")
+                    b.HasOne("LocumGQLGateway.Domain.Credentials.Category", "Category")
                         .WithMany("Questions")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1622,9 +1619,9 @@ namespace LocumGQLGateway.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.QuestionOption", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.QuestionOption", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Credentials.Question", "Question")
+                    b.HasOne("LocumGQLGateway.Domain.Credentials.Question", "Question")
                         .WithMany("Options")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1633,19 +1630,19 @@ namespace LocumGQLGateway.Migrations
                     b.Navigation("Question");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.UserCredential", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.UserCredential", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Credentials.Question", "Question")
+                    b.HasOne("LocumGQLGateway.Domain.Credentials.Question", "Question")
                         .WithMany()
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LocumGQLGateway.Models.Credentials.QuestionOption", "SelectedOption")
+                    b.HasOne("LocumGQLGateway.Domain.Credentials.QuestionOption", "SelectedOption")
                         .WithMany()
                         .HasForeignKey("SelectedOptionId");
 
-                    b.HasOne("LocumGQLGateway.Models.User", "ValidatedBy")
+                    b.HasOne("LocumGQLGateway.Domain.User", "ValidatedBy")
                         .WithMany()
                         .HasForeignKey("ValidatedById");
 
@@ -1656,15 +1653,15 @@ namespace LocumGQLGateway.Migrations
                     b.Navigation("ValidatedBy");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.Address", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.Address", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Profile", "Profile")
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.Profile", "Profile")
                         .WithOne("Address")
-                        .HasForeignKey("LocumGQLGateway.Models.Profiles.Address", "ProfileId")
+                        .HasForeignKey("LocumGQLGateway.Domain.Profiles.Address", "ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LocumGQLGateway.Models.Profiles.State", "State")
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.State", "State")
                         .WithMany()
                         .HasForeignKey("StateId");
 
@@ -1673,33 +1670,33 @@ namespace LocumGQLGateway.Migrations
                     b.Navigation("State");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.Preference", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.Preference", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Profile", "Profile")
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.Profile", "Profile")
                         .WithOne("Preference")
-                        .HasForeignKey("LocumGQLGateway.Models.Profiles.Preference", "ProfileId")
+                        .HasForeignKey("LocumGQLGateway.Domain.Profiles.Preference", "ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.Profile", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.Profile", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.User", "User")
+                    b.HasOne("LocumGQLGateway.Domain.User", "User")
                         .WithOne("Profile")
-                        .HasForeignKey("LocumGQLGateway.Models.Profiles.Profile", "UserId")
+                        .HasForeignKey("LocumGQLGateway.Domain.Profiles.Profile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.ProfileNotificationSettings", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.ProfileNotificationSettings", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Profile", "Profile")
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.Profile", "Profile")
                         .WithOne("ProfileNotificationSettings")
-                        .HasForeignKey("LocumGQLGateway.Models.Profiles.ProfileNotificationSettings", "ProfileId")
+                        .HasForeignKey("LocumGQLGateway.Domain.Profiles.ProfileNotificationSettings", "ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1708,13 +1705,13 @@ namespace LocumGQLGateway.Migrations
 
             modelBuilder.Entity("form_category", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Credentials.Category", null)
+                    b.HasOne("LocumGQLGateway.Domain.Credentials.Category", null)
                         .WithMany()
                         .HasForeignKey("category_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LocumGQLGateway.Models.Credentials.Form", null)
+                    b.HasOne("LocumGQLGateway.Domain.Credentials.Form", null)
                         .WithMany()
                         .HasForeignKey("form_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1723,13 +1720,13 @@ namespace LocumGQLGateway.Migrations
 
             modelBuilder.Entity("preference_facility_type", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.FacilityType", null)
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.FacilityType", null)
                         .WithMany()
                         .HasForeignKey("facility_type_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.Preference", null)
                         .WithMany()
                         .HasForeignKey("preference_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1738,13 +1735,13 @@ namespace LocumGQLGateway.Migrations
 
             modelBuilder.Entity("preference_job_type", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.JobType", null)
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.JobType", null)
                         .WithMany()
                         .HasForeignKey("job_type_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.Preference", null)
                         .WithMany()
                         .HasForeignKey("preference_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1753,13 +1750,13 @@ namespace LocumGQLGateway.Migrations
 
             modelBuilder.Entity("preference_location_type", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.LocationType", null)
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.LocationType", null)
                         .WithMany()
                         .HasForeignKey("location_type_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.Preference", null)
                         .WithMany()
                         .HasForeignKey("preference_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1768,13 +1765,13 @@ namespace LocumGQLGateway.Migrations
 
             modelBuilder.Entity("preference_shift_type", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.Preference", null)
                         .WithMany()
                         .HasForeignKey("preference_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LocumGQLGateway.Models.Profiles.ShiftType", null)
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.ShiftType", null)
                         .WithMany()
                         .HasForeignKey("shift_type_id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1783,30 +1780,30 @@ namespace LocumGQLGateway.Migrations
 
             modelBuilder.Entity("preference_state", b =>
                 {
-                    b.HasOne("LocumGQLGateway.Models.Profiles.Preference", null)
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.Preference", null)
                         .WithMany()
                         .HasForeignKey("preference_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LocumGQLGateway.Models.Profiles.State", null)
+                    b.HasOne("LocumGQLGateway.Domain.Profiles.State", null)
                         .WithMany()
                         .HasForeignKey("state_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.Category", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.Category", b =>
                 {
                     b.Navigation("Questions");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Credentials.Question", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Credentials.Question", b =>
                 {
                     b.Navigation("Options");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.Profiles.Profile", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.Profiles.Profile", b =>
                 {
                     b.Navigation("Address");
 
@@ -1815,7 +1812,7 @@ namespace LocumGQLGateway.Migrations
                     b.Navigation("ProfileNotificationSettings");
                 });
 
-            modelBuilder.Entity("LocumGQLGateway.Models.User", b =>
+            modelBuilder.Entity("LocumGQLGateway.Domain.User", b =>
                 {
                     b.Navigation("Profile");
                 });

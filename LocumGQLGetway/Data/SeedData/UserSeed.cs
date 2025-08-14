@@ -1,5 +1,5 @@
-using LocumGQLGateway.Enums;
-using LocumGQLGateway.Models;
+using LocumApp.Domain.Enums;
+using LocumApp.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

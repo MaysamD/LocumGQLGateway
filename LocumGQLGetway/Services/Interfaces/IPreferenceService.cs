@@ -1,5 +1,5 @@
+using LocumApp.Domain.Models.Profiles;
 using LocumGQLGateway.Dtos;
-using LocumGQLGateway.Models.Profiles;
 
 namespace LocumGQLGateway.Services.Interfaces;
 

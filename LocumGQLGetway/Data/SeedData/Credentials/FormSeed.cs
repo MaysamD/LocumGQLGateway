@@ -1,4 +1,4 @@
-using LocumGQLGateway.Models.Credentials;
+using LocumApp.Domain.Models.Credentials;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -34,12 +34,13 @@ public class FormSeed : IEntityTypeConfiguration<Form>
                 {
                     j.HasKey("form_id", "category_id"); // composite PK
                     j.ToTable("form_category"); // table name
+                    j.Property<int>("sort_order"); // Add shadow property for sort_order
                     j.HasData(
-                        new { form_id = 1, category_id = 1 },
-                        new { form_id = 1, category_id = 2 },
-                        new { form_id = 1, category_id = 3 },
-                        new { form_id = 1, category_id = 4 },
-                        new { form_id = 1, category_id = 5 }
+                        new { form_id = 1, category_id = 1, sort_order = 1 },
+                        new { form_id = 1, category_id = 2, sort_order = 2 },
+                        new { form_id = 1, category_id = 3, sort_order = 3 },
+                        new { form_id = 1, category_id = 4, sort_order = 4 },
+                        new { form_id = 1, category_id = 5, sort_order = 5 }
                     );
                 });
     }

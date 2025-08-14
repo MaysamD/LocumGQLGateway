@@ -1,9 +1,9 @@
+using LocumApp.Domain.Models;
+using LocumApp.Domain.Models.Credentials;
+using LocumApp.Domain.Models.Profiles;
 using LocumGQLGateway.Data.SeedData;
 using LocumGQLGateway.Data.SeedData.Credentials;
 using LocumGQLGateway.Data.SeedData.ProfileSeeds;
-using LocumGQLGateway.Models;
-using LocumGQLGateway.Models.Credentials;
-using LocumGQLGateway.Models.Profiles;
 using Microsoft.EntityFrameworkCore;
 
 namespace LocumGQLGateway.Data;

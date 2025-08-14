@@ -1,4 +1,4 @@
-using LocumGQLGateway.Models.Credentials;
+using LocumApp.Domain.Models.Credentials;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

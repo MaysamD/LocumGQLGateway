@@ -1,6 +1,6 @@
+using LocumApp.Domain.Models.Profiles;
 using LocumGQLGateway.Data;
 using LocumGQLGateway.Dtos;
-using LocumGQLGateway.Models.Profiles;
 using LocumGQLGateway.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using KeyNotFoundException = System.Collections.Generic.KeyNotFoundException;

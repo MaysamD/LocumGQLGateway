@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using LocumGQLGateway.Enums;
+using LocumApp.Domain.Enums;
 
 namespace LocumGQLGateway.Dtos;
 

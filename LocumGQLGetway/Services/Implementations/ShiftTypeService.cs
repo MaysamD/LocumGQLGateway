@@ -1,5 +1,5 @@
+using LocumApp.Domain.Models.Profiles;
 using LocumGQLGateway.Data;
-using LocumGQLGateway.Models.Profiles;
 using LocumGQLGateway.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

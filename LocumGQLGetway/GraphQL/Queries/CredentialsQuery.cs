@@ -1,4 +1,4 @@
-using LocumGQLGateway.Models.Credentials;
+using LocumApp.Domain.Models.Credentials;
 using LocumGQLGateway.Services.Interfaces;
 
 namespace LocumGQLGateway.GraphQL.Queries;
