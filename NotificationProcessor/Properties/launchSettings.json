@@ -5,7 +5,6 @@
             "dotnetRunMessages": true,
             "environmentVariables": {
                 "ASPNETCORE_ENVIRONMENT": "Development", 
-                "SERVICEBUS_CONNECTIONSTRING": "Endpoint=sb://locumo.servicebus.windows.net/;SharedAccessKeyName=NotificationProcessor;SharedAccessKey=ngrM4ccoA5Gv8uWGUgXQV0nEWt3w/s2K0+ASbH07pTs=;EntityPath=notifications"
             }
         }
     }
