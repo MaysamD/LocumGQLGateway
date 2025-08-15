@@ -5,6 +5,16 @@ using Quartz;
 var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((context, services) =>
     {
+        // Read Service Bus config from appsettings or environment
+        var serviceBusConnection = Environment.GetEnvironmentVariable("SERVICEBUS_CONNECTIONSTRING") ??
+                                   context.Configuration["ServiceBus:ConnectionString"];
+
+        var queueName = context.Configuration["ServiceBus:QueueName"] ?? "notifications";
+
+        // Register ServiceBusSenderHelper as singleton
+        services.AddSingleton(new ServiceBusSenderHelper(serviceBusConnection, queueName));
+
+
         var jobConfigs = context.Configuration
             .GetSection("Quartz:Jobs")
             .Get<List<JobConfig>>();

@@ -1,11 +1,12 @@
 ﻿{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "NotificationScheduler": {
+    "LocalDev": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "environmentVariables": {
-        "DOTNET_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SERVICEBUS_CONNECTIONSTRING": "Endpoint=sb://locumo.servicebus.windows.net/;SharedAccessKeyName=NotificationProcessor;SharedAccessKey=ngrM4ccoA5Gv8uWGUgXQV0nEWt3w/s2K0+ASbH07pTs=;EntityPath=notifications"
       }
     }
   }

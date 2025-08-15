@@ -1,74 +1,46 @@
 using Azure.Messaging.ServiceBus;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace NotificationProcessor;
 
 public class ServiceBusWorker : BackgroundService
 {
+    private readonly ServiceBusWorkerConfig _config;
     private readonly ILogger<ServiceBusWorker> _logger;
-    private readonly IConfiguration _configuration;
-    private ServiceBusClient _client;
-    private ServiceBusProcessor _processor;
 
-    public ServiceBusWorker(ILogger<ServiceBusWorker> logger, IConfiguration configuration)
+    public ServiceBusWorker(IOptions<ServiceBusWorkerConfig> options, ILogger<ServiceBusWorker> logger)
     {
+        _config = options.Value;
         _logger = logger;
-        _configuration = configuration;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var serviceBusConfig = _configuration.GetSection("ServiceBus");
-        string connectionString = serviceBusConfig["ConnectionString"];
-        string queueName = serviceBusConfig["QueueName"];
+        await using var client = new ServiceBusClient(_config.ConnectionString);
+        var processor = client.CreateProcessor(_config.QueueName, new ServiceBusProcessorOptions());
 
-        _client = new ServiceBusClient(connectionString);
-        _processor = _client.CreateProcessor(queueName, new ServiceBusProcessorOptions
+        processor.ProcessMessageAsync += async args =>
         {
-            AutoCompleteMessages = false,
-            MaxConcurrentCalls = 5
-        });
+            var message = args.Message.Body.ToString();
+            _logger.LogInformation("Received message: {message}", message);
 
-        _processor.ProcessMessageAsync += ProcessMessageHandler;
-        _processor.ProcessErrorAsync += ErrorHandler;
+            // TODO: Your processing logic here
 
-        _logger.LogInformation("Starting Service Bus processor for queue: {queueName}", queueName);
+            await args.CompleteMessageAsync(args.Message);
+        };
 
-        await _processor.StartProcessingAsync(stoppingToken);
+        processor.ProcessErrorAsync += args =>
+        {
+            _logger.LogError(args.Exception, "Error processing message");
+            return Task.CompletedTask;
+        };
 
-        // Wait until stopping token is triggered
+        await processor.StartProcessingAsync(stoppingToken);
+
         await Task.Delay(Timeout.Infinite, stoppingToken);
 
-        _logger.LogInformation("Stopping Service Bus processor...");
-        await _processor.StopProcessingAsync();
-        await _processor.DisposeAsync();
-        await _client.DisposeAsync();
-    }
-
-    private async Task ProcessMessageHandler(ProcessMessageEventArgs args)
-    {
-        string body = args.Message.Body.ToString();
-        _logger.LogInformation("Received message: {message}", body);
-
-        // TODO: Add your business logic here
-        await ProcessMessage(body);
-
-        // Complete the message so it’s removed from the queue
-        await args.CompleteMessageAsync(args.Message);
-    }
-
-    private Task ErrorHandler(ProcessErrorEventArgs args)
-    {
-        _logger.LogError(args.Exception, "Message handler encountered an exception");
-        return Task.CompletedTask;
-    }
-
-    private Task ProcessMessage(string message)
-    {
-        // Your processing logic
-        _logger.LogInformation("Processing message: {message}", message);
-        return Task.CompletedTask;
+        await processor.StopProcessingAsync();
     }
 }
