@@ -97,7 +97,7 @@ public class UserService : IUserService
     private string? GetHashedPassword(string inputPassword)
     {
         var passwordHasher = new PasswordHasher<object>();
-        var hashedPassword = passwordHasher.HashPassword(null, inputPassword);
+        var hashedPassword = passwordHasher.HashPassword(null!, inputPassword);
         return hashedPassword;
     }
 
@@ -105,7 +105,7 @@ public class UserService : IUserService
     {
         // To verify later:
         var passwordHasher = new PasswordHasher<object>();
-        var verificationResult = passwordHasher.VerifyHashedPassword(null, hashedPassword, inputPassword);
+        var verificationResult = passwordHasher.VerifyHashedPassword(null!, hashedPassword, inputPassword);
         if (verificationResult == PasswordVerificationResult.Success) return true;
 
         return false;

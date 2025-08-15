@@ -1,6 +1,8 @@
 # NotificationProcessor
 
-**NotificationProcessor** is a .NET background service that listens to Azure Service Bus queues and processes notifications, supporting **Email, SMS, and In-App notifications**. It is designed for easy extension with additional notification types.
+**NotificationProcessor** is a .NET background service that listens to Azure Service Bus queues and processes
+notifications, supporting **Email, SMS, and In-App notifications**. It is designed for easy extension with additional
+notification types.
 
 ---
 
@@ -39,6 +41,7 @@
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/NotificationProcessor.git
 cd NotificationProcessor

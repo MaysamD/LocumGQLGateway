@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using JobScheduler.Models;
+using JobScheduler.Services.Implementations;
+using JobScheduler.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using NotificationProcessor.Models;
-using NotificationProcessor.Services.Implementations;
-using NotificationProcessor.Services.Interfaces;
 
 var host = Host.CreateDefaultBuilder(args)
     .ConfigureAppConfiguration((hostingContext, config) =>

@@ -1,13 +1,13 @@
 using System.Net;
 using System.Net.Mail;
 using System.Text.Json;
+using JobScheduler.Models;
+using JobScheduler.Services.Interfaces;
 using LocumApp.Domain.Models.Notifications;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using NotificationProcessor.Models;
-using NotificationProcessor.Services.Interfaces;
 
-namespace NotificationProcessor.Services.Implementations;
+namespace JobScheduler.Services.Implementations;
 
 /// <summary>
 ///     Provides functionality to send email notifications using SMTP.

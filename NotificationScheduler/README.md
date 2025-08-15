@@ -1,6 +1,8 @@
 # NotificationScheduler
 
-**NotificationScheduler** is a .NET service responsible for scheduling notifications to be sent via multiple channels (Email, SMS, In-App) at the appropriate time. It works in conjunction with `NotificationProcessor` to ensure reliable, timed delivery of notifications.
+**NotificationScheduler** is a .NET service responsible for scheduling notifications to be sent via multiple channels (
+Email, SMS, In-App) at the appropriate time. It works in conjunction with `NotificationProcessor` to ensure reliable,
+timed delivery of notifications.
 
 ---
 
