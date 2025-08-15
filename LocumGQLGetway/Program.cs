@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+
 // Configure EF Core with MySQL
 builder.Services.AddPooledDbContextFactory<AppDbContext>(options =>
 {
@@ -20,7 +21,7 @@ builder.Services.AddPooledDbContextFactory<AppDbContext>(options =>
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)).UseSnakeCaseNamingConvention());
 // Register Services
-builder.Services.AddLocumServices();
+builder.Services.AddLocumServices(builder.Configuration);
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
