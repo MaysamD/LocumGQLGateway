@@ -58,14 +58,14 @@ public class NotificationDto
     ///     Optional metadata or tags (e.g., JSON for dynamic data).
     /// </summary>
     public string? Metadata { get; set; }
-    
+
     /// <summary>
-    /// Gets or sets the <see cref="NotificationTemplate"/> associated with this notification.
+    ///     Gets or sets the <see cref="NotificationTemplate" /> associated with this notification.
     /// </summary>
     /// <remarks>
-    /// This property can be <c>null</c> if no template is assigned. 
-    /// The <see cref="NotificationTemplate"/> contains the HTML content, metadata placeholders, 
-    /// and other template-specific settings used when sending notifications.
+    ///     This property can be <c>null</c> if no template is assigned.
+    ///     The <see cref="NotificationTemplate" /> contains the HTML content, metadata placeholders,
+    ///     and other template-specific settings used when sending notifications.
     /// </remarks>
     public NotificationTemplate? NotificationTemplate { get; set; }
 }

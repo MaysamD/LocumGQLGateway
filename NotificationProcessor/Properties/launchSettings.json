@@ -10,7 +10,8 @@
         "EmailSettings:SmtpPort": "587",
         "EmailSettings:SenderEmail": "maysam.k.dabbagh@gmail.com",
         "EmailSettings:SenderName": "Maysam Dabbagh",
-        "EmailSettings:Password": "hzos ptwl uctq wlzv"// https://myaccount.google.com/apppasswords
+        "EmailSettings:Password": "hzos ptwl uctq wlzv"
+        // https://myaccount.google.com/apppasswords
       }
     }
   }

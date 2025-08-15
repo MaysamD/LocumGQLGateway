@@ -33,10 +33,10 @@ var host = Host.CreateDefaultBuilder(args)
         services.AddScoped<INotificationSender, InAppNotificationSender>();
         services.AddScoped<INotificationSender, SmsNotificationSender>();
         services.AddScoped<INotificationSender, EmailNotificationSender>();
-    }) 
+    })
     .ConfigureServices((context, services) =>
     {
-        services.Configure<EmailSettings>(context.Configuration.GetSection("EmailSettings")); 
+        services.Configure<EmailSettings>(context.Configuration.GetSection("EmailSettings"));
     })
     .Build();
 
