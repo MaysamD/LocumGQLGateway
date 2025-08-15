@@ -1,4 +1,4 @@
-namespace NotificationProcessor;
+namespace NotificationProcessor.Models;
 
 public class ServiceBusWorkerConfig
 {

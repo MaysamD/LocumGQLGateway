@@ -5,7 +5,12 @@
       "dotnetRunMessages": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "SERVICEBUS_CONNECTIONSTRING": "Endpoint=sb://locumo.servicebus.windows.net/;SharedAccessKeyName=NotificationProcessor;SharedAccessKey=ngrM4ccoA5Gv8uWGUgXQV0nEWt3w/s2K0+ASbH07pTs=;EntityPath=notifications"
+        "SERVICEBUS_CONNECTIONSTRING": "Endpoint=sb://locumo.servicebus.windows.net/;SharedAccessKeyName=NotificationProcessor;SharedAccessKey=ngrM4ccoA5Gv8uWGUgXQV0nEWt3w/s2K0+ASbH07pTs=;EntityPath=notifications",
+        "EmailSettings:SmtpHost": "smtp.gmail.com",
+        "EmailSettings:SmtpPort": "587",
+        "EmailSettings:SenderEmail": "maysam.k.dabbagh@gmail.com",
+        "EmailSettings:SenderName": "Maysam Dabbagh",
+        "EmailSettings:Password": "hzos ptwl uctq wlzv"// https://myaccount.google.com/apppasswords
       }
     }
   }

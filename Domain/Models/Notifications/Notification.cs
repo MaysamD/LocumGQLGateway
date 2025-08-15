@@ -11,7 +11,9 @@ public class Notification : BaseEntity
     [Column("id")]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
+#pragma warning disable CS0108, CS0114
     public Guid Id { get; set; }
+#pragma warning restore CS0108, CS0114
 
     /// <summary>
     ///     Type of notification (InApp, SMS, Email).
@@ -77,4 +79,19 @@ public class Notification : BaseEntity
     /// </summary>
     [Column("metadata", TypeName = "text")]
     public string? Metadata { get; set; }
+
+    /// <summary>
+    ///     Optional metadata or tags (e.g., JSON for dynamic data).
+    /// </summary>
+    
+    /// <summary>
+    /// Gets or sets the <see cref="NotificationTemplate"/> associated with this notification.
+    /// </summary>
+    /// <remarks>
+    /// This property can be <c>null</c> if no template is assigned. 
+    /// The <see cref="NotificationTemplate"/> contains the HTML content, metadata placeholders, 
+    /// and other template-specific settings used when sending notifications.
+    /// </remarks>
+    [Column("notification_template")]
+    public NotificationTemplate? NotificationTemplate { get; set; }
 }
