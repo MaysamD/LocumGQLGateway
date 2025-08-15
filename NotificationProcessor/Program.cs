@@ -17,7 +17,7 @@ var host = Host.CreateDefaultBuilder(args)
     })
     .ConfigureServices((context, services) =>
     {
-        // Bind ServiceBus config from appsettings.json or environment variable
+        // Bind ServiceBus config from app settings.json or environment variable
         services.Configure<ServiceBusWorkerConfig>(options =>
         {
             options.ConnectionString = Environment.GetEnvironmentVariable("SERVICEBUS_CONNECTIONSTRING")

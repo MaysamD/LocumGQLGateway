@@ -7,7 +7,8 @@ namespace LocumApp.Domain.Models.Notifications;
 [Table("notifications")]
 public class Notification : BaseEntity
 {
-    [Key] [Column("id")] 
+    [Key]
+    [Column("id")]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
     public Guid Id { get; set; }
@@ -20,7 +21,7 @@ public class Notification : BaseEntity
     public NotificationType Type { get; set; }
 
     /// <summary>
-    /// Email recipient address (required if Type = Email).
+    ///     Email recipient address (required if Type = Email).
     /// </summary>
     [MaxLength(255)]
     [EmailAddress]
@@ -29,8 +30,8 @@ public class Notification : BaseEntity
     public string? EmailRecipient { get; set; }
 
     /// <summary>
-    /// SMS recipient phone number (required if Type = SMS).
-    /// E.164 format: +[country code][number], e.g. +14155552671
+    ///     SMS recipient phone number (required if Type = SMS).
+    ///     E.164 format: +[country code][number], e.g. +14155552671
     /// </summary>
     [MaxLength(20)]
     [RegularExpression(@"^\+[1-9]\d{1,14}$", ErrorMessage = "Invalid phone number format. Use E.164 format.")]
@@ -38,7 +39,7 @@ public class Notification : BaseEntity
     public string? SmsRecipient { get; set; }
 
     /// <summary>
-    /// In-app recipient user ID (required if Type = InApp).
+    ///     In-app recipient user ID (required if Type = InApp).
     /// </summary>
     [Column("user_id_recipient")]
     [Required]
@@ -57,7 +58,7 @@ public class Notification : BaseEntity
     [Required]
     [Column("message")]
     public string Message { get; set; } = string.Empty;
-    
+
     /// <summary>
     ///     Optional HTML body for Email notifications.
     /// </summary>

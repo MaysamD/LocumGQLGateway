@@ -5,28 +5,28 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.20.1" />
-        <PackageReference Include="EFCore.NamingConventions" Version="8.0.2" />
-        <PackageReference Include="HotChocolate" Version="15.1.8" />
-        <PackageReference Include="HotChocolate.AspNetCore" Version="15.1.8" />
-        <PackageReference Include="HotChocolate.Data" Version="15.1.8" />
-        <PackageReference Include="HotChocolate.Data.EntityFramework" Version="15.1.8" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.13" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.13" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.13" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
-        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
+        <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.20.1"/>
+        <PackageReference Include="EFCore.NamingConventions" Version="8.0.2"/>
+        <PackageReference Include="HotChocolate" Version="15.1.8"/>
+        <PackageReference Include="HotChocolate.AspNetCore" Version="15.1.8"/>
+        <PackageReference Include="HotChocolate.Data" Version="15.1.8"/>
+        <PackageReference Include="HotChocolate.Data.EntityFramework" Version="15.1.8"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.13"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.13"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.13"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8"/>
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Remove="Extensions\ModelBuilderExtensions.cs" />
-        <Compile Remove="Extensions\ValidationExtention.cs" />
-        <Compile Remove="Models\Credentials\FormQuestion.cs" />
-        <Compile Remove="Data\SeedData\Credentials\FormCategorySeed.cs" />
-        <Compile Remove="Models\Credentials\FormCategory.cs" />
-        <Compile Remove="Data\SeedData\ProfileSeeds\PreferenceFacilityTypeSeed.cs" />
-        <Compile Remove="Models\Profiles\PreferenceFacilityType.cs" />
+        <Compile Remove="Extensions\ModelBuilderExtensions.cs"/>
+        <Compile Remove="Extensions\ValidationExtention.cs"/>
+        <Compile Remove="Models\Credentials\FormQuestion.cs"/>
+        <Compile Remove="Data\SeedData\Credentials\FormCategorySeed.cs"/>
+        <Compile Remove="Models\Credentials\FormCategory.cs"/>
+        <Compile Remove="Data\SeedData\ProfileSeeds\PreferenceFacilityTypeSeed.cs"/>
+        <Compile Remove="Models\Profiles\PreferenceFacilityType.cs"/>
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Domain\Domain.csproj" />
+        <ProjectReference Include="..\Domain\Domain.csproj"/>
     </ItemGroup>
 </Project>

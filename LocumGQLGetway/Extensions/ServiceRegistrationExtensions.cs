@@ -2,6 +2,7 @@ using LocumGQLGateway.Config;
 using LocumGQLGateway.Services;
 using LocumGQLGateway.Services.Implementations;
 using LocumGQLGateway.Services.Interfaces;
+
 namespace LocumGQLGateway.Extensions;
 
 public static class ServiceRegistrationExtensions
