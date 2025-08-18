@@ -1,4 +1,4 @@
-namespace JobScheduler.Models;
+namespace NotificationProcessor.Models;
 
 /// <summary>
 ///     Represents the configuration settings required for a Service Bus worker.

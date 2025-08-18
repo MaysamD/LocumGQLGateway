@@ -1,42 +1,61 @@
-﻿using JobScheduler.Models;
-using JobScheduler.Services.Implementations;
-using JobScheduler.Services.Interfaces;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+
+using Quartz;
+using TaskScheduler;
+using TaskScheduler.Jobs;
 
 var host = Host.CreateDefaultBuilder(args)
-    .ConfigureAppConfiguration((hostingContext, config) =>
-    {
-        // Add environment variables to override appsettings.json
-        config.AddEnvironmentVariables();
-    })
-    .ConfigureLogging(logging =>
-    {
-        logging.ClearProviders();
-        logging.AddConsole();
-    })
     .ConfigureServices((context, services) =>
     {
-        // Bind ServiceBus config from app settings.json or environment variable
-        services.Configure<ServiceBusWorkerConfig>(options =>
+        // Read Service Bus config from appsettings or environment
+        var serviceBusConnection = Environment.GetEnvironmentVariable("SERVICEBUS_CONNECTIONSTRING") ??
+                                   context.Configuration["ServiceBus:ConnectionString"];
+
+        var queueName = context.Configuration["ServiceBus:QueueName"] ?? "notifications";
+
+        // Register ServiceBusSenderHelper as singleton
+        services.AddSingleton(new ServiceBusSenderHelper(serviceBusConnection!, queueName));
+
+
+        var jobConfigs = context.Configuration
+            .GetSection("Quartz:Jobs")
+            .Get<List<JobConfig>>();
+
+        services.AddQuartz(q =>
         {
-            options.ConnectionString = Environment.GetEnvironmentVariable("SERVICEBUS_CONNECTIONSTRING")
-                                       ?? context.Configuration["ServiceBus:ConnectionString"];
-            options.QueueName = context.Configuration["ServiceBus:QueueName"] ?? "notifications";
+            // Job1
+            var job1Config = jobConfigs?.Find(j => j.Name == "Job1");
+            if (job1Config != null)
+            {
+                q.AddJob<Job1>(opts =>
+                    opts.WithIdentity(job1Config.Name)
+                        .WithDescription(job1Config.Description));
+
+                q.AddTrigger(t => t
+                    .ForJob(job1Config.Name)
+                    .WithIdentity($"{job1Config.Name}Trigger")
+                    .WithCronSchedule(job1Config.CronSchedule));
+            }
+
+            // Job2
+            var job2Config = jobConfigs?.Find(j => j.Name == "Job2");
+            if (job2Config != null)
+            {
+                q.AddJob<Job2>(opts =>
+                    opts.WithIdentity(job2Config.Name)
+                        .WithDescription(job2Config.Description));
+
+                q.AddTrigger(t => t
+                    .ForJob(job2Config.Name)
+                    .WithIdentity($"{job2Config.Name}Trigger")
+                    .WithCronSchedule(job2Config.CronSchedule));
+            }
         });
 
-        // Register the worker
-        services.AddHostedService<ServiceBusWorker>();
+        services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
-        services.AddScoped<INotificationSender, InAppNotificationSender>();
-        services.AddScoped<INotificationSender, SmsNotificationSender>();
-        services.AddScoped<INotificationSender, EmailNotificationSender>();
-    })
-    .ConfigureServices((context, services) =>
-    {
-        services.Configure<EmailSettings>(context.Configuration.GetSection("EmailSettings"));
+        // Register jobs for DI
+        services.AddTransient<Job1>();
+        services.AddTransient<Job2>();
     })
     .Build();
 

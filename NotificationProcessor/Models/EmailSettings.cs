@@ -1,4 +1,4 @@
-namespace JobScheduler.Models;
+namespace NotificationProcessor.Models;
 
 /// <summary>
 ///     Represents the configuration settings required to send emails via SMTP.

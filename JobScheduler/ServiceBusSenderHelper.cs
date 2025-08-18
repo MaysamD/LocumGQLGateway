@@ -1,6 +1,6 @@
 using Azure.Messaging.ServiceBus;
 
-namespace NotificationScheduler;
+namespace TaskScheduler;
 
 public class ServiceBusSenderHelper
 {

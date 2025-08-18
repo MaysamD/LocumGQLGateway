@@ -1,6 +1,6 @@
 using LocumApp.Domain.Models.Notifications;
 
-namespace JobScheduler.Services.Interfaces;
+namespace NotificationProcessor.Services.Interfaces;
 
 public interface INotificationSender
 {

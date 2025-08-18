@@ -1,6 +1,6 @@
 using Quartz;
 
-namespace NotificationScheduler.NotificationJobs;
+namespace TaskScheduler.Jobs;
 
 public class Job2 : IJob
 {

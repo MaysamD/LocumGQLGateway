@@ -1,4 +1,4 @@
-namespace NotificationScheduler;
+namespace TaskScheduler;
 
 public class JobConfig
 {

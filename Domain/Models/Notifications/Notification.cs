@@ -7,6 +7,7 @@ namespace LocumApp.Domain.Models.Notifications;
 [Table("notifications")]
 public class Notification : BaseEntity
 {
+    private string? _htmlBody;
     [Key]
     [Column("id")]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -65,7 +66,11 @@ public class Notification : BaseEntity
     ///     Optional HTML body for Email notifications.
     /// </summary>
     [Column("html_body", TypeName = "text")]
-    public string? HtmlBody { get; set; }
+    public string? HtmlBody
+    {
+        get => _htmlBody;
+        set => _htmlBody = value?.SanitizeHtml() ?? string.Empty;
+    }
 
     /// <summary>
     ///     The current status of the notification.

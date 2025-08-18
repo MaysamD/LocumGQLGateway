@@ -1,21 +1,22 @@
-# NotificationProcessor
+# NotificationScheduler
 
-**NotificationProcessor** is a .NET background service that listens to Azure Service Bus queues and processes
-notifications, supporting **Email, SMS, and In-App notifications**. It is designed for easy extension with additional
-notification types.
+**NotificationScheduler** is a .NET service responsible for scheduling notifications to be sent via multiple channels (
+Email, SMS, In-App) at the appropriate time. It works in conjunction with `NotificationProcessor` to ensure reliable,
+timed delivery of notifications.
 
 ---
 
 ## Features
 
-- Listen to Azure Service Bus queue for incoming notifications.
-- Send notifications via multiple channels:
+- Schedule notifications for immediate or future delivery.
+- Supports multiple notification channels:
     - **Email** (SMTP)
     - **SMS**
     - **In-App**
-- Supports template-based email content with JSON metadata replacement.
-- Logging via Microsoft.Extensions.Logging.
-- Background service architecture using `BackgroundService`.
+- Integrates with `NotificationProcessor` for actual message sending.
+- Configurable scheduling intervals.
+- Logging via `Microsoft.Extensions.Logging`.
+- Background service architecture using `BackgroundService` for continuous scheduling.
 
 ---
 
@@ -23,7 +24,8 @@ notification types.
 
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
-- [Notification Format](#notification-format)
+- [Notification Model](#notification-model)
+- [Scheduling](#scheduling)
 - [Extending Notification Types](#extending-notification-types)
 - [Logging](#logging)
 - [License](#license)
@@ -35,51 +37,49 @@ notification types.
 ### Prerequisites
 
 - .NET 7.0 SDK or later
-- Azure Service Bus namespace and queue
-- SMTP email account for sending emails
+- Database or storage to persist scheduled notifications (optional)
+- `NotificationProcessor` running to handle delivery
 
 ### Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/NotificationProcessor.git
-cd NotificationProcessor
+git clone https://github.com/yourusername/NotificationScheduler.git
+cd NotificationScheduler
 
 2. Restore dependencies:
 dotnet restore
 
-
-3. Build the project:
+3. Build the projects:
 dotnet build
-
-
-4. Run the service:
-dotnet run --project NotificationScheduler
 
 ## Configuration
 AppSettings.json
 {
+  "ServiceBusWorkerConfig": {
+    "ConnectionString": "<SERVICE_BUS_CONNECTION_STRING>",
+    "QueueName": "<QUEUE_NAME>"
+  },
+  "EmailSettings": {
+    "SmtpHost": "smtp.gmail.com",
+    "SmtpPort": 587,
+    "SenderEmail": "your.email@gmail.com",
+    "SenderName": "Notification Processor",
+    "Password": "<APP_PASSWORD>"
+  },
   "SchedulerSettings": {
     "PollingIntervalSeconds": 30
-  },
-  "NotificationProcessorConfig": {
-    "ServiceBusConnectionString": "<YOUR_SERVICE_BUS_CONNECTION_STRING>",
-    "QueueName": "<YOUR_QUEUE_NAME>"
   }
 }
 
 
-SchedulerSettings.PollingIntervalSeconds: Frequency to check for scheduled notifications.
-NotificationProcessorConfig: Configuration for sending notifications via Service Bus.
+ServiceBusWorkerConfig: Connection to Azure Service Bus for processing messages.
+EmailSettings: SMTP configuration for Email notifications.
+SchedulerSettings.PollingIntervalSeconds: Interval to check for scheduled notifications.
 
-## notification-format
-Notification Model
- 
 ## Logging
-Logs scheduled notifications, errors, and delivery attempts.
-Uses Microsoft.Extensions.Logging.
 
-## License
+Logs all scheduled notifications, delivery attempts, and errors.
 
-This project is licensed under the MIT License.
+Uses Microsoft.Extensions.Logging for structured logging.

@@ -1,8 +1,8 @@
-using JobScheduler.Services.Interfaces;
 using LocumApp.Domain.Models.Notifications;
 using Microsoft.Extensions.Logging;
+using NotificationProcessor.Services.Interfaces;
 
-namespace JobScheduler.Services.Implementations;
+namespace NotificationProcessor.Services.Implementations;
 
 public class InAppNotificationSender : INotificationSender
 {

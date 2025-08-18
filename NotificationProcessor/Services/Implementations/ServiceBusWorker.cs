@@ -1,14 +1,14 @@
 using System.Text.Json;
 using Azure.Messaging.ServiceBus;
-using JobScheduler.Models;
-using JobScheduler.Services.Interfaces;
 using LocumApp.Domain.Enums;
 using LocumApp.Domain.Models.Notifications;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NotificationProcessor.Models;
+using NotificationProcessor.Services.Interfaces;
 
-namespace JobScheduler.Services.Implementations;
+namespace NotificationProcessor.Services.Implementations;
 
 /// <summary>
 ///     A background worker that listens to an Azure Service Bus queue and processes incoming notifications.
